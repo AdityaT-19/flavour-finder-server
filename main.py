@@ -11,6 +11,11 @@ classifier = Classifier()
 recommendation = Recommendation()
 
 
+@app.get("/health")
+async def health():
+    return {"status": "healthy"}
+
+
 @app.post("/predict")
 async def predictImage(file: UploadFile):
     file_location = f"images/{file.filename}"
