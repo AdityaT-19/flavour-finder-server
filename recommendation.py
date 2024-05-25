@@ -10,9 +10,9 @@ from nltk.stem import WordNetLemmatizer
 
 class Recommendation:
     def __init__(self):
-        self.original_data = pd.read_csv("data/food_data.csv")
+        self.original_data = pd.read_csv("./data/food_data.csv")
         self.original_data = self.original_data.dropna()
-        self.df = pd.read_csv("data/food_data.csv")
+        self.df = pd.read_csv("./data/food_data.csv")
         nltk.download("wordnet")
         nltk.download("stopwords")
         self.df = self.df.dropna()

@@ -38,9 +38,9 @@ class Classifier:
         ]
         self.model = models.resnet18(pretrained=True)
         self.model.fc = nn.Linear(self.model.fc.in_features, 1000)
-        self.model.load_state_dict(torch.load("model/torch_model.v1.pth"))
+        self.model.load_state_dict(torch.load("./model/torch_model.v1.pth"))
         self.model.eval()
-        self.data = pd.read_csv("data/recipes.csv")
+        self.data = pd.read_csv("./data/recipes.csv")
 
     def preprocess(self, image_path: str):
         image = Image.open(image_path).convert("RGB")
@@ -78,5 +78,5 @@ class Classifier:
 
 if __name__ == "__main__":
     classifier = Classifier()
-    predicted_class = classifier.predict("images/Baked-gobi-manchurian.jpg")
+    predicted_class = classifier.predict("./images/Baked-gobi-manchurian.jpg")
     print(predicted_class)
